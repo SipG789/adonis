@@ -6,7 +6,7 @@ const Employee = require("./lib/Employee");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
-const generatePage = require('./src/generatePage.js')
+const generatePage = require('./src/generatePage.js');
 
 //TODO: add class for role prompt to enter the team manager’s name, employee ID, email address, and office number
 
