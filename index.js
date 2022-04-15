@@ -1,3 +1,9 @@
+//TODO: dist=== rendered output (HTML) and CSS style sheet
+// add js files for engineer, intern, manager (employee is the parent object which they pull from so don't add it)
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
+const Manager = require('./lib/Manager');
+
 // TODO: add necessary applications
 const fs = require('fs');
 const inquirer = require('inquirer');
@@ -11,7 +17,6 @@ const inquirer = require('inquirer');
 //TODO: enter the intern’s name, ID, email, and school, and I am taken back to the menu for intern
 
 //TODO: add css style
-//TODO: dist=== rendered output (HTML) and CSS style sheet
 //TODO: src=== template helper code 
 //TODO: index.js=== runs the application 
 //TODO: HTML is generated
