@@ -107,7 +107,7 @@ Add a New Employee
         {
             // employee id
             type: 'input',
-            name: 'id',
+            name: 'empId',
             message: 'What is your Employee ID? (Required)',
             validate: idName => {
                 if (idName) {
@@ -121,7 +121,7 @@ Add a New Employee
         {
             // employee email
             type: 'input',
-            name: 'email',
+            name: 'empEmail',
             message: 'What is your Employee Email? (Required)',
             validate: emailName => {
                 if (emailName) {
@@ -151,14 +151,20 @@ Add a New Employee
             type: 'input',
             name: 'school',
             message: 'What is your school name? (Required)',
-            validate: schoolName => {
-                if (schoolName) {
-                    return true;
-                } else {
-                    console.log('Please enter your school name!');
-                    return false;
-                }
-            }
+            // validate: schoolName => {
+            //     if (schoolName) {
+            //         return true;
+            //     } else {
+            //         console.log('Please enter your school name!');
+            //         return false;
+            //     }
+            // }
+        },
+        {
+            type: 'confirm',
+            name: 'confirmAddEmployee',
+            message: 'Would you like to add another employee?',
+            default: false
         }
 ])
     .then(workData => {
