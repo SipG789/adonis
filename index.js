@@ -7,7 +7,7 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 const generatePage = require("./src/generatePage.js");
-const { managerQuestions, engineerQuestions } = require("./lib/questions.js");
+const { managerQuestions, engineerQuestions, internQuestions } = require("./lib/questions.js");
 const team = [];
 let manager = {};
 
@@ -33,17 +33,16 @@ const addEmployee = () => {
         type: "list",
         name: "listRole",
         message: "What type of employee would you like to add?",
-        choices: ["Engineer", "Intern", "Employee", "Exit"],
+        choices: ["Engineer", "Intern", "Exit"],
       },
     ])
     .then((answer) => {
       switch (answer.listRole) {
-          //TODO: change this later
-        case "Intern":
-          promptEmployee(internQuestions, "Intern");
-          break;
         case "Engineer":
           promptEmployee(engineerQuestions, "Engineer");
+          break;
+        case "Intern":
+          promptEmployee(internQuestions, "Intern");
           break;
         case "Exit": 
         let teamData = { ...manager, team: team };
@@ -62,18 +61,8 @@ const addEmployee = () => {
 
 const promptEmployee = (questions, employeeType) => {
   inquirer.prompt(questions).then((answers) => {
-    console.log(answers);
     let employee = {};
     switch (employeeType) {
-        // TODO: switch to intern 
-      case "Intern":
-        manager = new Intern(
-          answers.name,
-          answers.id,
-          answers.email,
-          answers.officeNumber
-        );
-        break;
       case "Engineer":
         employee = new Engineer(
           answers.name,
@@ -82,6 +71,14 @@ const promptEmployee = (questions, employeeType) => {
           answers.github
         );
         break;
+      case "Intern":
+        employee = new Intern(
+          answers.name,
+          answers.id,
+          answers.email,
+          answers.school
+        );
+        break; 
       default:
         break;
     }

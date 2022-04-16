@@ -3,7 +3,6 @@ const Employee = require("../lib/Employee");
 
 // create employee cards
 const generateEmployee = employees => {
-  console.log(employees);
   if (!employees) {
     return '';
   }
@@ -13,21 +12,20 @@ const generateEmployee = employees => {
   <section class="my-3" id="engineer-one">
   <div class="card">
   <div class="card-engineer">
-    <h2 class="page-title text-secondary bg-dark py-2 px-3">${employee.name}</h2>
+    <h2 class="page-title align-items-center text-secondary bg-dark py-2 px-3">${employee.name}</h2>
     <h3 class="page-title text-secondary bg-dark py-2 px-3">Engineer</h3>
   </div>
   <div class="card" style="width: 18rem;">
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">ID: ${employee.id}</li>
-    <li class="list-group-item">Email: ${employee.email}</li>
-    ${employee.github ? `<li class="list-group-item">GitHub: ${employee.github}</li>`: null}
-    ${employee.school ? `<li class="list-group-item">GitHub: ${employee.school}</li>`: null}
+    <li class="list-group-item align-items-center">ID: ${employee.id}</li>
+    <li class="list-group-item align-items-center">Email: ${employee.email}</li>
+    ${employee.github ? `<li class="list-group-item align-items-center">GitHub: "https://github.com/${employee.github}"</li>`: null}
+    ${employee.school ? `<li class="list-group-item align-items-center">School: ${employee.school}</li>`: null}
   </ul>
 </div>
   </section>
   `)
   })
-  console.log(employeeCardData);
   return employeeCardData.join(" ");
 };
 
