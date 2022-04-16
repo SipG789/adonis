@@ -9,18 +9,19 @@ const generateEmployee = employees => {
  const employeeCardData = employees.map(employee =>{
     return(
     `
-  <section class="my-3" id="engineer-one">
+  <section class="mx-auto" style="width: 300px;" id="engineer-one">
   <div class="card">
   <div class="card-engineer">
     <h2 class="page-title align-items-center text-secondary bg-dark py-2 px-3">${employee.name}</h2>
-    <h3 class="page-title text-secondary bg-dark py-2 px-3">Engineer</h3>
+    ${employee.github ? `<h3 class="page-title text-secondary bg-dark py-2 px-3">Engineer</h3>`: ''}
+    ${employee.school ? `<h3 class="page-title text-secondary bg-dark py-2 px-3">Intern</h3>`: ''}
   </div>
   <div class="card" style="width: 18rem;">
   <ul class="list-group list-group-flush">
     <li class="list-group-item align-items-center">ID: ${employee.id}</li>
     <li class="list-group-item align-items-center">Email: ${employee.email}</li>
-    ${employee.github ? `<li class="list-group-item align-items-center">GitHub: "https://github.com/${employee.github}"</li>`: null}
-    ${employee.school ? `<li class="list-group-item align-items-center">School: ${employee.school}</li>`: null}
+    ${employee.github ? `<li class="list-group-item align-items-center">GitHub: "https://github.com/${employee.github}"</li>`: ''}
+    ${employee.school ? `<li class="list-group-item align-items-center">School: ${employee.school}</li>`: ''}
   </ul>
 </div>
   </section>
@@ -55,8 +56,8 @@ const generatePage = (data) => {
     </header>
     <main class="container my-5">
 <div class="container"> 
-  <section class="my-3" id="manager">
-  <div class="card">
+  <section class="mx-auto" style="width: 300px;" id="manager">
+  <div class="card style="width: 18rem;">
   <div class="card-manager">
     <h2 class="page-title text-secondary bg-dark py-2 px-3">${data.name}</h2>
     <h3 class="page-title text-secondary bg-dark py-2 px-3">Manager</h3>
