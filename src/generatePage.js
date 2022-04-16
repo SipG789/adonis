@@ -1,3 +1,35 @@
+const Employee = require("../lib/Employee");
+
+
+// create employee cards
+const generateEmployee = employees => {
+  console.log(employees);
+  if (!employees) {
+    return '';
+  }
+ const employeeCardData = employees.map(employee =>{
+    return(
+    `
+  <section class="my-3" id="engineer-one">
+  <div class="card">
+  <div class="card-engineer">
+    <h2 class="page-title text-secondary bg-dark py-2 px-3">${employee.name}</h2>
+    <h3 class="page-title text-secondary bg-dark py-2 px-3">Engineer</h3>
+  </div>
+  <div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">ID: ${employee.id}</li>
+    <li class="list-group-item">Email: ${employee.email}</li>
+    ${employee.github ? `<li class="list-group-item">GitHub: ${employee.github}</li>`: null}
+    ${employee.school ? `<li class="list-group-item">GitHub: ${employee.school}</li>`: null}
+  </ul>
+</div>
+  </section>
+  `)
+  })
+  console.log(employeeCardData);
+  return employeeCardData.join(" ");
+};
 
 // using dummy info for now to see if it will generate a page and success... will return to fix this later 
 const generatePage = (data) => {
@@ -24,11 +56,11 @@ const generatePage = (data) => {
       </div>
     </header>
     <main class="container my-5">
-      
+<div class="container"> 
   <section class="my-3" id="manager">
   <div class="card">
   <div class="card-manager">
-    <h2 class="page-title text-secondary bg-dark py-2 px-3">${data.title}</h2>
+    <h2 class="page-title text-secondary bg-dark py-2 px-3">${data.name}</h2>
     <h3 class="page-title text-secondary bg-dark py-2 px-3">Manager</h3>
   </div>
   <div class="card" style="width: 18rem;">
@@ -39,24 +71,10 @@ const generatePage = (data) => {
   </ul>
 </div>
   </section>
-  
-  <section class="my-3" id="engineer-one">
-  <div class="card">
-  <div class="card-engineer">
-    <h2 class="page-title text-secondary bg-dark py-2 px-3">${data.empName}</h2>
-    <h3 class="page-title text-secondary bg-dark py-2 px-3">Engineer</h3>
-  </div>
-  <div class="card" style="width: 18rem;">
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">ID: ${data.empId}</li>
-    <li class="list-group-item">Email: ${data.empEmail}</li>
-    <li class="list-group-item">GitHub: ${data.github}</li>
-  </ul>
-</div>
-  </section>
+  ${generateEmployee(data.team)}
       
   
-
+</div>
     </main>
     <footer class="container text-center py-3">
       <h3 class="text-dark">2022 Team Generator! </h3>
