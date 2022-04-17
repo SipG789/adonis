@@ -1,6 +1,5 @@
 const Employee = require("../lib/Employee");
 
-
 // create employee cards
 const generateEmployee = employees => {
   if (!employees) {
