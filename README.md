@@ -14,7 +14,8 @@
   This application uses inquirer to generate a webpage that displays a team's basic information with quick access to emails and github accounts as well as employee roles. 
 
   ### Install
-  Download the application from my repository then download Node and answer the questions on the command line. 
+ THe following is a video showing how this application works.
+ [![Watch the video](./src/Challenge%2010%20Walkthrough.gif)]
 
   ### Usage
   Using the comman line, run node index, then answer the questions. You will be prompted to input the manager role first then you may choose to add as many engineer and interns as possible. The application takes the information and generates an HTML page that displays this information. 
